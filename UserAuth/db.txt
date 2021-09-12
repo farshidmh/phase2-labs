@@ -1,0 +1,9 @@
+create table tbl_user
+(
+uid int NOT NULL AUTO_INCREMENT,
+username varchar(200) NOT NULL,
+password varchar(200) NOT NULL,
+full_name varchar(200) NOT NULL,
+date_added DATE NOT NULL,
+PRIMARY KEY(uid)
+);
