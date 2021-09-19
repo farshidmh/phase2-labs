@@ -18,6 +18,7 @@ import org.hibernate.Transaction;
 
 import com.simplilearn.shop.Product;
 import com.simplilearn.shop.ProductImage;
+import com.simplilearn.shop.ProductImageMeta;
 import com.simplilearn.util.HibernateUtil;
 
 /**
@@ -40,28 +41,31 @@ public class NewProduct extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-			String name="Phone";
+			String name="Laptop";
 			
-			double price = 170;
-			
-			
-			List<ProductImage> images = new ArrayList<ProductImage>();
+			double price = 800;
 			
 			
-			images.add(   new ProductImage("a.jpg")  );
-			
-			images.add(   new ProductImage("b.jpg") );
+			Product p1 = new Product(name,price);
 			
 			
+			
+			ProductImage img1 = new ProductImage("a.jpg",p1);
 			
 		
-			Product p1 = new Product(name,price,images);
+			img1.addImageMeta(new ProductImageMeta("height","200",img1));
+			
+			
+			p1.addImage(img1);
 			
 			
 			
-			SessionFactory factory = HibernateUtil.getSessionFactory();
+						
+			///SessionFactory factory = HibernateUtil.getSessionFactory();		
+			//Session session  = factory.openSession();
 			
-			Session session  = factory.openSession();
+			Session session = HibernateUtil.getSessionFactory().openSession();
+			
 			
 			Transaction trans = session.beginTransaction();
 			

@@ -1,6 +1,7 @@
 package com.simplilearn.shop;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.StringJoiner;
 
@@ -29,7 +30,6 @@ public class Product {
 	private double price;
 
 	
-	
 	@OneToMany(cascade=CascadeType.ALL , mappedBy="product" )
 	private List<ProductImage> images;
 	
@@ -39,11 +39,11 @@ public class Product {
 		super();
 	}
 
-	public Product(String name, double price, List<ProductImage> images) {
+	public Product(String name, double price) {
 		super();
 		this.name = name;
 		this.price = price;
-		this.images = images;
+		images = new ArrayList<ProductImage>();
 	}
 
 
@@ -70,11 +70,14 @@ public class Product {
 	public int getProductId() {
 		return productId;
 	}
-	
-	
-	
-	
-	
+
+	public List<ProductImage> getImages() {
+		return images;
+	}
+
+	public void addImage(ProductImage image) {
+		images.add(image);
+	}
 	
 	
 	

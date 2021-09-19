@@ -17,7 +17,7 @@
     
     <property name="show_sql">true</property>
     
-    
+    <mapping class="com.simplilearn.shop.ProductImageMeta"/>
     
     <mapping class="com.simplilearn.shop.ProductImage"/>
     

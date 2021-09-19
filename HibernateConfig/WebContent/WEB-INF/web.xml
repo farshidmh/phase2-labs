@@ -13,19 +13,27 @@
     <servlet-name>InitHibernateServlet</servlet-name>
     <servlet-class>com.simplilearn.servlet.InitializeHibernate</servlet-class>
   </servlet>
-  
-  
-  <servlet> 
-   	<servlet-name>NewProductServlet</servlet-name>
+  <servlet>
+    <servlet-name>NewProductServlet</servlet-name>
     <servlet-class>com.simplilearn.servlet.NewProduct</servlet-class>
   </servlet>
   
-  <servlet-mapping>
-  	<servlet-name>NewProductServlet</servlet-name>
-  	<url-pattern>/newProduct</url-pattern>
-  </servlet-mapping>
-     
+    <servlet>
+    <servlet-name>GetProductServlet</servlet-name>
+    <servlet-class>com.simplilearn.servlet.GetProduct</servlet-class>
+  </servlet>
   
+  
+  <servlet-mapping>
+  	<servlet-name>GetProductServlet</servlet-name>
+  	<url-pattern>/getP</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet-mapping>
+    <servlet-name>NewProductServlet</servlet-name>
+    <url-pattern>/newProduct</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>InitHibernateServlet</servlet-name>
     <url-pattern>/init</url-pattern>
