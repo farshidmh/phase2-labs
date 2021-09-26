@@ -26,5 +26,12 @@
     
     
     
+    <mapping class="com.simplilearn.shop.Address"/>
+    
+    <mapping class="com.simplilearn.shop.User"/>
+    
+    
+    
+    
   </session-factory>
 </hibernate-configuration>

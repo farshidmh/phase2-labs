@@ -17,19 +17,49 @@
     <servlet-name>NewProductServlet</servlet-name>
     <servlet-class>com.simplilearn.servlet.NewProduct</servlet-class>
   </servlet>
-  
-    <servlet>
+  <servlet>
     <servlet-name>GetProductServlet</servlet-name>
     <servlet-class>com.simplilearn.servlet.GetProduct</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>GetAllProductsServlet</servlet-name>
+    <servlet-class>com.simplilearn.servlet.GetAllProducts</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeleteProductServlet</servlet-name>
+    <servlet-class>com.simplilearn.servlet.DeleteProduct</servlet-class>
+  </servlet>
   
   
-  <servlet-mapping>
-  	<servlet-name>GetProductServlet</servlet-name>
-  	<url-pattern>/getP</url-pattern>
+    <servlet>
+    <servlet-name>UpdatePackageServlet</servlet-name>
+    <servlet-class>com.simplilearn.servlet.UpdatePackage</servlet-class>
+  </servlet>
+  
+  
+  
+  
+  
+    <servlet-mapping>
+    <servlet-name>UpdatePackageServlet</servlet-name>
+    <url-pattern>/update</url-pattern>
   </servlet-mapping>
   
   
+  
+  
+  <servlet-mapping>
+    <servlet-name>DeleteProductServlet</servlet-name>
+    <url-pattern>/delete</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetAllProductsServlet</servlet-name>
+    <url-pattern>/all_products</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetProductServlet</servlet-name>
+    <url-pattern>/getP</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>NewProductServlet</servlet-name>
     <url-pattern>/newProduct</url-pattern>

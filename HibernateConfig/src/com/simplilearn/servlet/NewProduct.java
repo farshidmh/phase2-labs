@@ -16,9 +16,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import com.simplilearn.shop.Address;
 import com.simplilearn.shop.Product;
 import com.simplilearn.shop.ProductImage;
 import com.simplilearn.shop.ProductImageMeta;
+import com.simplilearn.shop.User;
 import com.simplilearn.util.HibernateUtil;
 
 /**
@@ -39,55 +41,44 @@ public class NewProduct extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-			String name="Laptop";
-			
-			double price = 800;
-			
-			
-			Product p1 = new Product(name,price);
-			
-			
-			
-			ProductImage img1 = new ProductImage("a.jpg",p1);
-			
+		String name = request.getParameter("pName");
+		double price = Double.parseDouble( request.getParameter("pPrice")  );
 		
-			img1.addImageMeta(new ProductImageMeta("height","200",img1));
+
+		
+		String imgUrl= request.getParameter("pImg");
+		
+		String imgH= request.getParameter("imgH");
+		
+		String imgW= request.getParameter("imgW");
+		
+		
+	
 			
-			
-			p1.addImage(img1);
-			
-			
-			
+		Product p1 = new Product(name,price);
 						
-			///SessionFactory factory = HibernateUtil.getSessionFactory();		
-			//Session session  = factory.openSession();
+		ProductImage img1 = new ProductImage(imgUrl,p1);
 			
-			Session session = HibernateUtil.getSessionFactory().openSession();
+		
+		img1.addImageMeta(new ProductImageMeta("height",imgH,img1));
+		img1.addImageMeta(new ProductImageMeta("width",imgW,img1));
 			
+		p1.addImage(img1);
 			
-			Transaction trans = session.beginTransaction();
+		
+		Session session = HibernateUtil.getSessionFactory().openSession();					
+		Transaction trans = session.beginTransaction();			
 			
+		session.save(p1);
+							
+		trans.commit();
 			
-			session.save(p1);
-			
-			
-			
-			trans.commit();
-			
-			session.close();
-			
-			
-			
-			PrintWriter out = response.getWriter();
-			
-			out.println("<html><body>  DONE! </body></html> ");
-
+		session.close();
 
 		
-		
-		
+		response.sendRedirect("list_product.jsp");
 		
 		
 		
